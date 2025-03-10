@@ -1,54 +1,162 @@
-<div class="dashboard">
-  <h1>Welcome, [Student Name]</h1>
-  <div class="cards">
-    <div class="card">
-      <h2>Assignments</h2>
-      <p>View and submit assignments.</p>
-      <a href="/assignments">Go to Assignments</a>
-    </div>
-    <div class="card">
-      <h2>Grades</h2>
-      <p>Check your grades and feedback.</p>
-      <a href="/grades">Go to Grades</a>
-    </div>
-  </div>
-</div>
-.dashboard {
-  padding: 20px;
-  font-family: 'Open Sans', sans-serif;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to Our School</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#faculty">Faculty</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="section">
+        <div class="container">
+            <h2>Home</h2>
+            <p>Welcome to Our School! We are dedicated to providing a high-quality education for all our students.</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Our school has a rich history of academic excellence and community involvement. Our mission is to foster a love of learning and prepare students for success in a global society.</p>
+        </div>
+    </section>
+
+    <section id="academics" class="section">
+        <div class="container">
+            <h2>Academics</h2>
+            <p>We offer a comprehensive curriculum that includes mathematics, science, literature, and the arts. Our programs are designed to challenge and inspire students.</p>
+        </div>
+    </section>
+
+    <section id="admissions" class="section">
+        <div class="container">
+            <h2>Admissions</h2>
+            <p>Interested in joining our school? Learn more about our admissions process and requirements.</p>
+            <a href="#contact">Apply Now</a>
+        </div>
+    </section>
+
+    <section id="faculty" class="section">
+        <div class="container">
+            <h2>Faculty</h2>
+            <p>Our dedicated faculty members are experts in their fields and are committed to helping students achieve their full potential.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions? Reach out to us!</p>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Our School. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
 
-.card {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  flex: 1 1 300px;
+header h1 {
+    margin: 0;
 }
 
-@media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-  }
+nav ul {
+    list-style: none;
+    padding: 0;
 }
-function login(username, password) {
-  fetch('/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.token) {
-      localStorage.setItem('token', data.token);
-      window.location.href = '/dashboard';
-    } else {
-      alert('Invalid credentials');
-    }
-  });
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
 }
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.section {
+    padding: 20px 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+form button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+
