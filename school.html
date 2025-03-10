@@ -1,0 +1,54 @@
+<div class="dashboard">
+  <h1>Welcome, [Student Name]</h1>
+  <div class="cards">
+    <div class="card">
+      <h2>Assignments</h2>
+      <p>View and submit assignments.</p>
+      <a href="/assignments">Go to Assignments</a>
+    </div>
+    <div class="card">
+      <h2>Grades</h2>
+      <p>Check your grades and feedback.</p>
+      <a href="/grades">Go to Grades</a>
+    </div>
+  </div>
+</div>
+.dashboard {
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1 1 300px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+  }
+}
+function login(username, password) {
+  fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.token) {
+      localStorage.setItem('token', data.token);
+      window.location.href = '/dashboard';
+    } else {
+      alert('Invalid credentials');
+    }
+  });
+}
